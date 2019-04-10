@@ -1,13 +1,14 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
-import javafx.scene.control.Label;
-import javafx.event.EventHandler;
-import javafx.scene.input.KeyEvent;
-import javafx.collections.ObservableList;
 
 public class Main extends Application{
+  /*
+  Main:
+  Debe haber un menu para crear un personaje mapaPrincipal
+  Despues, debera aparecer en el mapa principal.
+  Debera recorrerlo para llegar al primer Nivel y superarlo
+  Seguira asi hasta completar la historia y llegar al jefe.
+  */
 
   private static int[][] arregloMapa;
   private static Mapa mapaPrincipal;

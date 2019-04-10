@@ -14,8 +14,13 @@ public class Nivel extends Mapa {
 
   //Antes de entrar a un nivel tiene que guardar la ubicacion del heroe en el mapa general
 
-  public Nivel(int tamanio, int itemsColocar, PersonajePrincipal persona){
+  public Nivel(int tamanio, int itemsColocar, PersonajePrincipal persona, int numVillanos){
     super(tamanio, itemsColocar, persona);
+  }
+
+  private Villano crearVillano(String nombre, String nombreAtaque){
+    int puntosDefensa = (int)Math.ceil(Math.random()*5);
+    return new Villano(nombre, getHeroeMapa().getXP(), puntosDefensa, nombreAtaque);
   }
 
   public void moverHeroe(int desplazamientoX, int desplazamientoY){
