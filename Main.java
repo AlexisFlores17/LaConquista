@@ -1,7 +1,7 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Main extends Application{
+public class Main extends Application {
   /*
   Main:
   Debe haber un menu para crear un personaje mapaPrincipal
@@ -10,20 +10,19 @@ public class Main extends Application{
   Seguira asi hasta completar la historia y llegar al jefe.
   */
 
-  private static int[][] arregloMapa;
   private static Mapa mapaPrincipal;
+  private static PersonajePrincipal heroe;
+
   public static void main(String[] args) {
-    PersonajePrincipal diego = new PersonajePrincipal("Dieguapo");
-    Villano pedrito = new Villano("Pedriro", 10, 5, "sandwich");
-    diego.adquirirExperiencia(20);
-    //comenzarPelea(diego, pedrito);
-    mapaPrincipal = new Mapa(12, 5, diego);
-    mapaPrincipal.imprimirPlano();
-    arregloMapa = mapaPrincipal.getPlano();
+
+    //mapaPrincipal = new Mapa(12, 5, diego);
+    //mapaPrincipal.imprimirPlano();
     launch(args);
   }
 
   public void start(Stage primaryStage){
-    mapaPrincipal.start(primaryStage);
+    CharacterSelection menu = new CharacterSelection(heroe);
+    primaryStage.setScene(menu.createCharacterSelection());
+    primaryStage.show();
   }
 }

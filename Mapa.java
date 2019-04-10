@@ -161,6 +161,5 @@ public class Mapa {
       }
     });
     primaryStage.setScene(scene);
-    primaryStage.show();
   }
 }
