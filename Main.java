@@ -1,5 +1,7 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
 
 public class Main extends Application {
   /*
@@ -24,5 +26,32 @@ public class Main extends Application {
     CharacterSelection menu = new CharacterSelection(heroe);
     primaryStage.setScene(menu.createCharacterSelection());
     primaryStage.show();
+    menu.getWarriorButton().addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent e){
+        System.out.println("Boton guerrero presionado");
+				menu.definirHeroe("guerrero");
+        heroe = menu.getHeroe();
+        mapaPrincipal = new Mapa(10, 5, heroe);
+        primaryStage.setScene(mapaPrincipal.createMapa());
+			}
+		});
+    menu.getTlatoaniButton().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent e){
+        System.out.println("Boton tlatoani presionado");
+        menu.definirHeroe("tlatoani");
+        heroe = menu.getHeroe();
+        mapaPrincipal = new Mapa(10, 5, heroe);
+        primaryStage.setScene(mapaPrincipal.createMapa());
+      }
+		});
+    menu.getPriestButton().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+		public void handle(MouseEvent e){
+      System.out.println("Boton sacerdote presionado");
+			menu.definirHeroe("sacerdote");
+      heroe = menu.getHeroe();
+      mapaPrincipal = new Mapa(10, 5, heroe);
+      primaryStage.setScene(mapaPrincipal.createMapa());
+		}
+		});
   }
 }

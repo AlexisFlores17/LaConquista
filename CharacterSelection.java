@@ -7,12 +7,12 @@ import javafx.event.EventHandler;
 public class CharacterSelection{
 
   private PersonajePrincipal heroe;
-  private Button warriorButton = new Button();
-  private Button tlatoaniButton = new Button();
-  private Button priestButton = new Button();
+  private Button warriorButton = new Button("Guerrero");
+  private Button tlatoaniButton = new Button("Tlatoani");
+  private Button priestButton = new Button("Sacerdote");
 
-  public CharacterSelection(PersonajePrincipal personaje){
-    heroe = personaje;
+  public CharacterSelection(PersonajePrincipal heroe){
+    this.heroe = heroe;
   }
 
   public  Scene createCharacterSelection(){
@@ -28,26 +28,13 @@ public class CharacterSelection{
       btnPersonaje.setMinWidth(200);
     }
 
-		warriorButton.setStyle("-fx-background-image:url('C:/Users/hp/Documents/Tec/Computing/Images/warrior.png');");
-		warriorButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
-			public void handle(MouseEvent e){
-				definirHeroe("guerrero");
-			}
-		});
+		//warriorButton.setStyle("-fx-background-image:url('C:/Users/hp/Documents/Tec/Computing/Images/warrior.png');");
 
-		tlatoaniButton.setStyle("-fx-background-image:url('C:/Users/hp/Documents/Tec/Computing/Images/Tlatoani.png');");
-		tlatoaniButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
-			public void handle(MouseEvent e){
-        definirHeroe("tlatoani");
-      }
-		});
+		//tlatoaniButton.setStyle("-fx-background-image:url('C:/Users/hp/Documents/Tec/Computing/Images/Tlatoani.png');");
 
-		priestButton.setStyle("-fx-background-image:url(´C:/Users/hp/Documents/Tec/Computing/Images/Priest.png);");
-		priestButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
-		public void handle(MouseEvent e){
-			definirHeroe("sacerdote");
-		}
-		});
+
+		//priestButton.setStyle("-fx-background-image:url(´C:/Users/hp/Documents/Tec/Computing/Images/Priest.png);");
+
 
 		gp.add(warriorButton,0,0);
 		gp.add(tlatoaniButton,1,0);
@@ -68,7 +55,11 @@ public class CharacterSelection{
     return priestButton;
   }
 
-  private void definirHeroe(String tipoHeroe){
+  public PersonajePrincipal getHeroe(){
+    return heroe;
+  }
+
+  public void definirHeroe(String tipoHeroe){
     switch (tipoHeroe) {
       case "guerrero": heroe = new Guerrero("warrior",10,10,10,10); break;
       case "tlatoani": heroe = new Tlatoani("Tlatoani",10,10,10,10); break;
